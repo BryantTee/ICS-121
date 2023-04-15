@@ -1,5 +1,6 @@
 import os
 import shutil
+import re
 
 # O(N) runtime, Linear Time relative to text file, since the function places
 # each word into a list and calls lower() to standaraize each word
@@ -13,12 +14,15 @@ def tokenize(TFP):
     target_file = filepath[-1]
 
     #opens and auto closes file, reads then places each word (seperated by newline) into a list
+    Tokened = list()
     with open(target_file, encoding="utf8") as f:
-        text = f.read()
-        text = text.split("\n")
+        for line in f:
+            for word in line.split(" "):
+                word = word.lower()
+                wordFix = re.sub(r'[^a-z0-9]','', word)
+                Tokened.append(wordFix)
     
     #standarizes each word in list, making every word lowercase
-    Tokened = [x.lower() for x in text]
 
     #returns list of tokenized words
     return Tokened
