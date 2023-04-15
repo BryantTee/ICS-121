@@ -2,25 +2,17 @@ import os
 import shutil
 
 
-global wordList
-
-class Token:
-    data = None
-
-    def __init__(init, d):
-        data = d.lower()
-
 def tokenize(TFP):
     with open(TFP, 'r') as f:
         text = f.read()
         text = text.split("\n")
     
-    Tokened = [Token(x) for x in text]
+    Tokened = [x.lower() for x in text]
     WordList = Tokened
     return Tokened
 
 def computeWordFrequencies(words):
-    retMap = {}
+    retMap = dict()
     for x in words:
         retMap[x] = 0
 
@@ -29,8 +21,15 @@ def computeWordFrequencies(words):
     
     return retMap
 
-def print(mapping):
-    None 
+def printout(mapping):
+    sortedmap = sorted(mapping.items(), key=lambda item:item[1], reverse=True)
+
+    for x in sortedmap:
+        print(x[0] + " = " + str(x[1]))
+
+
+
+
 
 if __name__ == "__main__":
     print("pog")
@@ -44,4 +43,5 @@ if __name__ == "__main__":
     print(filepath[-1])
 
     list = tokenize(target_file)
-    computeWordFrequencies(list)    
+    map = computeWordFrequencies(list)
+    printout(map)
