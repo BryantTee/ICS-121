@@ -8,3 +8,8 @@ seven
 eight
 nine
 ten
+one
+one
+one
+five
+five
