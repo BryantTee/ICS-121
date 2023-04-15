@@ -25,7 +25,7 @@ def compare(TFP1, TFP2):
                 for word in line.split(" "):
                     word = word.lower()
                     wordFix = re.sub(r'[^a-z0-9]','', word)
-                    Tokened1.append(wordFix)
+                    Tokened1.add(wordFix)
             except:
                 pass
     f.close()
@@ -38,7 +38,7 @@ def compare(TFP1, TFP2):
                 for word in line.split(" "):
                     word = word.lower()
                     wordFix = re.sub(r'[^a-z0-9]','', word)
-                    Tokened2.append(wordFix)
+                    Tokened2.add(wordFix)
             except:
                 pass
     f.close()
