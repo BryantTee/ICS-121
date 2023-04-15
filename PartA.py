@@ -13,7 +13,7 @@ def tokenize(TFP):
     target_file = filepath[-1]
 
     #opens and auto closes file, reads then places each word (seperated by newline) into a list
-    with open(target_file, 'r') as f:
+    with open(target_file, encoding="utf8") as f:
         text = f.read()
         text = text.split("\n")
     
