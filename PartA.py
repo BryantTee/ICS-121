@@ -60,14 +60,31 @@ def printout(mapping):
 if __name__ == "__main__":
     print("...starting program...")
 
-    file = input("\nEnter file path (ex: C:/Users/berya/ICS121/testing.txt): ")  
-    #file = "C:/Users/berya/ICS121/testing.txt"
-    list = tokenize(file)
-    print("\ncounting word frequency...")
-    map = computeWordFrequencies(list)
+    running = True
+    while running:
+        try:
+            file = input("\nEnter file path (ex: C:/Users/berya/ICS121/testing.txt) (q to quit): ")  
+            #file = "C:/Users/berya/ICS121/testing.txt"
+            
+            if (file == "q"):
+                break
 
-    print("\nprinting out map...")
-    print("----------------------------------------------")
-    printout(map)
-    print("----------------------------------------------")
-    print("finished printing map...")
+            list = tokenize(file)
+            print("\ncounting word frequency...")
+            map = computeWordFrequencies(list)
+
+            print("\nprinting out map...")
+            print("----------------------------------------------")
+            printout(map)
+            print("----------------------------------------------")
+            print("finished printing map...")
+        except:
+            print("\n-------------------------------------------------")
+            print("file does not exist or wrong format try again...")
+            print("-------------------------------------------------")\
+    
+    print("\nprogram finished running...\n")
+
+
+
+    
